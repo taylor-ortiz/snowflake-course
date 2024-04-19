@@ -24,7 +24,7 @@ Snowflake Class Notes
 - What are the layers of a data warehouse?
     - Raw data: just extracting raw data as is from the data sources into data warehouse
         - Staging area
-        - Doesn’t have to be within the data warehouse
+        - Doesn’t have to be within the data warehouse 
     - Data integration: transforming the data into how you’d like to utilize it
         - Data transformation
     - Access layer: make data accessible to different solutions such as reporting, data science and other apps
