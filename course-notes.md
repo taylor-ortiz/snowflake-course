@@ -1,10 +1,10 @@
-Snowflake Class Notes
+# Snowflake Class Notes
 
 - The three layers of snowflake are storage, query processing, and cloud services
 - Query processing is the muscle of the system
 - Cloud services is referred to as the brain of the system
 - Virtual warehouses are used as compute resources to process queries
-- Scaling policy
+## Scaling policy
     - Multi clustering
         - At certain time we have more queries than a certain warehouse can process. The solution is that we can automatically shut down or start additional clusters to handle the load. Redistributing queries
         - Auto scaling
@@ -16,19 +16,19 @@ Snowflake Class Notes
             - What is a check?
                 - Determines whether the load on the least loaded cluster could be redistributed to the other clusters
 
-- What is the purpose of a data warehouse?
+## What is the purpose of a data warehouse?
     - Database that is used for reporting and data analysis
     - Database that combines different data from different data sources
     - Integrate various sources of data
     - ETL process is process of creating a data warehouse (Extract, Transform, & Load)
-- What are the layers of a data warehouse?
+## What are the layers of a data warehouse?
     - Raw data: just extracting raw data as is from the data sources into data warehouse
         - Staging area
         - Doesn’t have to be within the data warehouse 
     - Data integration: transforming the data into how you’d like to utilize it
         - Data transformation
     - Access layer: make data accessible to different solutions such as reporting, data science and other apps
-- Why cloud computing?
+## Why cloud computing?
     - Historically, it was necessary to have a data center
         - Issue is that this can cause a ton of overhead. the infrastructure, security and electricity play a part in the maintenance. Also the need for software/hardware upgrades. 
     - Application: we are only responsible for this part. Beauty of SaaS
@@ -38,7 +38,7 @@ Snowflake Class Notes
     - Physical servers: AWS, Azure or GCP
     - Virtual machines: AWS, Azure or GCP
     - Physical storage: AWS, Azure or GCP
-- What editions are available in Snowflake?
+## What editions are available in Snowflake?
     - Enterprise: additional features for the needs of large scale enterprises
         - All standard features
         - Multi cluster warehouses
@@ -61,7 +61,7 @@ Snowflake Class Notes
         - Additional security such as data encryption everywhere
         - Extended support
         - Database failover and disaster recovery
-- Snowflake pricing
+## Snowflake pricing
     - Pay only what you need
     - Scalable amount of storage at affordable cloud price
     - Pricing dependent on the region
@@ -86,7 +86,7 @@ Snowflake Class Notes
     - Pricing might differ per region
     - Not being charged for the data that you want to push data in from such as AWS or Google Cloud Platform
 ￼
-- Snowflake Roles
+## Snowflake Roles
     - Account admin
         - Sysadmin and securityadmin
         - Top level role in the system
@@ -104,7 +104,7 @@ Snowflake Class Notes
     - Public
         - Automatically granted to every users
         - Can create own objects like every other role
-- Loading Data
+## Loading Data
     - Bulk loading
         - Most frequent method
         - Uses warehouses
@@ -131,7 +131,7 @@ Snowflake Class Notes
             - Local storage maintained by snowflake
         - Storage integration objects
             - Best practice on where to hold credentials for stage objects
-- Copy Options
+## Copy Options
     - Specify maximum size (in bytes) of data loaded in that command (at least one file)
     - When the threshold is exceeded, the COPY operation stops loading
 ￼
@@ -143,9 +143,9 @@ Snowflake Class Notes
     - FORCE
         - TRUE: a file that has been loaded previously and has not been changed can be loaded anyways
         - This has the potential to duplicate data in a table
-- Load History
+## Load History
     - Enables you to retrieve the history of data loaded into tables using the copy into <table> command
-- Load Unstructured Data
+## Load Unstructured Data
     - Create Stage
     - Load raw data
         - into separate table
