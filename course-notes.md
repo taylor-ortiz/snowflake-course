@@ -145,3 +145,12 @@ Snowflake Class Notes
         - This has the potential to duplicate data in a table
 - Load History
     - Enables you to retrieve the history of data loaded into tables using the copy into <table> command
+- Load Unstructured Data
+    - Create Stage
+    - Load raw data
+        - into separate table
+        - Variant data type
+            - this data type can handle complex data types
+    - Analyze & parse
+        - Analyze with snowflake functions
+    - Flatten & load
