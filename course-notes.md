@@ -8,7 +8,7 @@
 ## Scaling policy
    - Multi clustering
    - At certain time we have more queries than a certain warehouse can process. The solution is that we can automatically shut down or start additional clusters to handle the load. Redistributing queries
-    - Auto scaling
+   - Auto scaling
         - If we have more queries that can be processed by a single warehouse, there will be a queue
     - When do we start an additional cluster?
         - Scaling policies
