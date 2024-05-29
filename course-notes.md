@@ -1,9 +1,10 @@
 # Snowflake Class Notes
 
 <li> The three layers of snowflake are storage, query processing, and cloud services</li>
-- Query processing is the muscle of the system
-- Cloud services is referred to as the brain of the system
-- Virtual warehouses are used as compute resources to process queries
+<li>Query processing is the muscle of the system</li>
+<li>Cloud services is referred to as the brain of the system</li>
+<li>Virtual warehouses are used as compute resources to process queries</li>
+
 ## Scaling policy
     - Multi clustering
         - At certain time we have more queries than a certain warehouse can process. The solution is that we can automatically shut down or start additional clusters to handle the load. Redistributing queries
