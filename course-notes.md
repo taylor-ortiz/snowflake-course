@@ -6,14 +6,14 @@
 <li>Virtual warehouses are used as compute resources to process queries</li>
 
 ## Scaling policy
-    - Multi clustering
-        - At certain time we have more queries than a certain warehouse can process. The solution is that we can automatically shut down or start additional clusters to handle the load. Redistributing queries
-        - Auto scaling
-            - If we have more queries that can be processed by a single warehouse, there will be a queue
-            - When do we start an additional cluster?
-            - Scaling policies
-                - Standard: favors starting additional warehouses
-                - Economy: favors conserving credits rather than starting additional warehouses
+   - Multi clustering
+   - At certain time we have more queries than a certain warehouse can process. The solution is that we can automatically shut down or start additional clusters to handle the load. Redistributing queries
+    - Auto scaling
+        - If we have more queries that can be processed by a single warehouse, there will be a queue
+    - When do we start an additional cluster?
+        - Scaling policies
+            - Standard: favors starting additional warehouses
+            - Economy: favors conserving credits rather than starting additional warehouses
             - What is a check?
                 - Determines whether the load on the least loaded cluster could be redistributed to the other clusters
 
