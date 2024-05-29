@@ -1,6 +1,6 @@
 # Snowflake Class Notes
 
-- The three layers of snowflake are storage, query processing, and cloud services
+<li> The three layers of snowflake are storage, query processing, and cloud services</li>
 - Query processing is the muscle of the system
 - Cloud services is referred to as the brain of the system
 - Virtual warehouses are used as compute resources to process queries
