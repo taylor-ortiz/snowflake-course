@@ -154,3 +154,71 @@
     - Analyze & parse
         - Analyze with snowflake functions
     - Flatten & load
+## Performance Optimization
+    - Automatically managed micro partitions
+    - Sizing virtual warehouses
+    - Cluster keys
+    - Dedicated virtual warehouses
+        - separated according to different workloads
+    - Scaling up
+        - for known patterns of high work load
+    - Scaling out
+        - Dynamically scale our multi cluster warehouse out and automatically create new warehouse clusters
+    - Maximize cache usage
+        - Automatic caching can be maximized
+    - Cluster keys
+        - for large tables
+## Dedicated virtual warehouses
+    - Identify & Classify
+        - Identify and classify groups of workload/users
+        - BI team, data science team, marketing department
+    - Create dedicated virtual warehouses
+        - For every class of workload and assign users
+    - Considerations
+        - Not too many virtual warehouses
+            - Avoid underutilization 
+        - Refine classifications
+            - Work patterns can change
+## Scaling up/down
+    - Changing the size of the virtual warehouse depending on different workloads in different periods
+    - Use cases:
+        - ETL at certain times (for example between 4pm and 8pm)
+        - Special business event with more work load
+    - NOTE: common scenario is increased query complexity, NOT more users (then scaling out would be better)
+## Scaling Out
+    - Using additional warehouses / multi cluster warehouses
+    - More concurrent users/ queries
+    - Handling performance related to large numbers of concurrent users
+    - Automation of the process if you have fluctuating number of users
+## Multi clustering
+    - If we have more queries that could be processed by a single cluster, new instances of clusters can be spawned 
+    - Considerations:
+        - If you use at least enterprise edition, all warehouses should be multi cluster
+        - Minimum: default should be 1
+        - Maximum: can be very high
+## Caching
+    - Automatic process to speed up the queries
+    - if query is executed twice, results are cached and can be re-used
+    - results are cached for 24 hours or until underlaying data has changed
+    - What can we do?
+        - Ensure that similar queries go on the same warehouse
+        - Example: team of data scientists run similar queries, so they should all use the same warehouse
+
+## Cluster Keys
+    - snowflake automatically maintains these cluster keys
+    - in general, snowflake produces well-clustered tables
+    - cluster keys are not always ideal and can change over time
+    - When to cluster?
+        - clustering is not for all tables
+        - mainly very large tables of multiple terabytes can benefit
+    - How to cluster?
+        - columns that are used most frequently in WHERE-clauses (often date columns for event tables)
+        - if you typically use filters on two columns then the table can also benefit from two cluster keys
+        - column that is frequently used in joins
+        - large enough number of distinct values to enable effective grouping 
+        - small enough number of distinct values to allow effective grouping
+        - Example:
+            - CREATE TABLE <name> ... CLUSTER BY ( <column1> [, <column2> ...])
+            - CREATE TABLE <name> ... CLUSTER BY ( <expression>)
+            - ALTER TABLE <name> CLUSTER BY (<expr1> [, <expr2> ... ])
+            - ALTER TABLE <name> DROP CLUSTERING KEY
