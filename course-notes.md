@@ -223,3 +223,6 @@
             - CREATE TABLE <name> ... CLUSTER BY ( <expression>)
             - ALTER TABLE <name> CLUSTER BY (<expr1> [, <expr2> ... ])
             - ALTER TABLE <name> DROP CLUSTERING KEY
+## What is Snowpipe?
+- Enables loading once a file appears in a bucket
+- if data needs to be available immediately for analysis
