@@ -228,3 +228,14 @@
 - if data needs to be available immediately for analysis
 - Snowpipe uses serverless features instead of warehouses
 - Automatically detects that new files are added to a bucket via an event notification
+
+## Setting up Snowpipe
+- Create stage
+    - establishes connection
+- Test COPY COMMAND
+    - ensure that the connection is working
+- Create Pipe
+    - Create pipe as object with COPY COMMAND
+    - Contains copy command definition
+- Set up S3 Notification
+    - To trigger snowpipe
