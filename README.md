@@ -239,3 +239,19 @@
     - Contains copy command definition
 - Set up S3 Notification
     - To trigger snowpipe
+
+## Setting up Snowpipe in Azure
+- when a file is added to an azure container, an event notification will fire and place the file to a queue storage and will be consumed by our notification integration in Snowflake. Snowflake can watch the queue storage. 
+- Steps:
+    - Storage Integration
+        - Connection details to container
+        - Grant permissions
+    - Create stage
+        - location to container
+    - Queue + Notification
+        - To trigger snowpipe
+    - Notification integration
+        - Notification can be received by snowflake
+        - Grant permissions
+    - Create pipe
+        - create pipe as object with copy command

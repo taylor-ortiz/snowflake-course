@@ -41,6 +41,8 @@ AS
 COPY INTO OUR_FIRST_DB.PUBLIC.employees2
 FROM @MANAGE_DB.external_stages.csv_folder ;
 
+-- See a list of all of the files that have been received by our pipe
+
 ALTER PIPE  MANAGE_DB.pipes.employee_pipe refresh;
 
 -- List files in stage
