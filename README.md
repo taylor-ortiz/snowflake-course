@@ -255,3 +255,23 @@
         - Grant permissions
     - Create pipe
         - create pipe as object with copy command
+
+## Time Travel
+- Enterprise or higher -> up to 90 days time travel
+- Standard edition -> up to 1 day time travel
+- Time travel on offset
+- Time travel on timestamp
+- Time travel on statement
+    - To me, this is the most useful because you can get data from a historical query ID and you dont have to remember when you queried the right data last
+- Retention time
+    - Standard Edition:
+        - Time travel up to 1 day
+    - Enterprise Edition:
+        - Time travel up to 90 days
+    - Business Critical:
+        - Time travel up to 90 days
+    - Virtual Private:
+        - Time travel up to 90 days
+    - Set the retention period for what work for you
+- Cost
+    - SELECT * FROM SNOWFLAKE.ACCOUNT_USAGE.TABLE_STORAGE_METRICS
