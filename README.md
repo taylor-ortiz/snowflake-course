@@ -303,19 +303,36 @@
         - Time travel retention period
         - Fail safe
     - Can be more expensive
+    - Travel retention period:
+        - 0 - 90 days
+    - Usages:
+        - Permanent data
 - Transient
     - ex. CREATE TRANSIENT TABLE
     - Includes:
         - Time travel retention period
     - Does not include:
         - Fail safe
+    - Travel retention period:
+        - only configurable to 1 day
+    - Usages:
+        - good for very large data and want to keep the storage costs low
+        - if we dont need a lot of retention protection for our data
 - Temporary
     - ex. CREATE TEMPORARY TABLE
     - Includes:
         - Time travel retention period
     - Does not include:
         - Fail safe
+    - Travel retention period:
+        - only configurable to 1 day
+    - Usages:
+        - non permanent data
 - What is the difference between transient and temporary?
     - it exists only in the current session
     - other users will not see this table
     - once the session is closed, the data will not be recoverable
+- Types are also available for other database objects (database, schema, etc)
+- For temporary table, no naming conflicts with permanent/transient tables
+    - Other tables will be hidden
+
