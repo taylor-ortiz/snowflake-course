@@ -275,3 +275,47 @@
     - Set the retention period for what work for you
 - Cost
     - SELECT * FROM SNOWFLAKE.ACCOUNT_USAGE.TABLE_STORAGE_METRICS
+
+## Fail Safe
+- Part of the data protection life cycle
+- Protection of historical data in case of disaster
+- Non configurable 7 day period for permanent tables
+- Period starts immediately after time travel period ends
+- No user interaction & recoverable only by Snowflake
+- Contributes to storage cost
+- How does it work?
+    - Current Data Storage
+        - Access and query data etc.
+    - Time travel
+        - 0 - 90 days retention time
+        - SELECT ...AT | BEFORE Undrop
+    - Fail safe
+        - No user operations/queries
+        - recovery beyond time travel
+        - restoring only by snowflake support
+        - transient table retention is 0 days
+        - permanent table retention is 7 days
+
+## Snowflake Table Types
+- Permanent
+    - ex. CREATE TABLE
+    - Includes:
+        - Time travel retention period
+        - Fail safe
+    - Can be more expensive
+- Transient
+    - ex. CREATE TRANSIENT TABLE
+    - Includes:
+        - Time travel retention period
+    - Does not include:
+        - Fail safe
+- Temporary
+    - ex. CREATE TEMPORARY TABLE
+    - Includes:
+        - Time travel retention period
+    - Does not include:
+        - Fail safe
+- What is the difference between transient and temporary?
+    - it exists only in the current session
+    - other users will not see this table
+    - once the session is closed, the data will not be recoverable
