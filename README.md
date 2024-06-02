@@ -336,3 +336,24 @@
 - For temporary table, no naming conflicts with permanent/transient tables
     - Other tables will be hidden
 
+## Zero Copy Cloning
+- Create copies of a database, a schema or a table
+- Cloned object is independent from original table
+- Easy to copy all metadata & improved storage management
+- Usage:
+    - Creating backups for development purposes
+- Works with time travel
+- Command
+    - CREATE TABLE <table_name> ... CLONE <source_table_name>
+    - You can use this with the time travel feature where BEFORE is referenced
+- Any structure of the object and metadata is inherited
+    - clustering keys, comments, etc
+- Data storage object (permanent & transient)
+    - Databases
+    - Schemas
+    - Tables
+    - Cannot use temporary
+- Configuration objects
+    - Stages
+    - File formats
+    - Tasks
