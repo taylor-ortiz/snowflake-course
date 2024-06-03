@@ -357,3 +357,30 @@
     - Stages
     - File formats
     - Tasks
+
+## Swapping tables
+- Use case:
+    - development table into production table
+        - swapping the metadata
+    - ALTER TABLE <table_name> SWAP WITH <target_table_name>
+
+## Data sharing
+- Usually this can be a complicated process
+- Sharing data without actual copy of the data and up to date
+- Shared data can be consumed by the own compute resources
+- Non-Snowflake users can also access through a reader account
+- Account that is producing this data is called the 'Producer'
+- Account that is receiving this data is called the 'Consumer'
+
+## Data sharing with Non-snowflake users
+- Independent account but we still have to pay for the consumption of the compute resources
+- Steps:
+    - New Reader Account
+        - Independent instance with own url & own compute resources
+    - Share data
+        - Share database & table
+    - Create database
+        - In reader account, create database from share
+    - Create Users
+        - as administrator, create user and roles
+- If you have a business critical account, then you are not allowed to share to a non business critical account. however, this can be overriden with share_restriction=FALSE
