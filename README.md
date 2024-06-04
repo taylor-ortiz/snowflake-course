@@ -384,3 +384,29 @@
     - Create Users
         - as administrator, create user and roles
 - If you have a business critical account, then you are not allowed to share to a non business critical account. however, this can be overriden with share_restriction=FALSE
+
+## Data Sampling
+- Sometimes it is not necessary to test on a complete dataset, especially if its massive
+- Instead of querying on the complete database, you would take a random sample to develop and test
+    - Good use for data analysis
+- Why sampling?
+    - query development, data analysis
+    - faster and more efficient
+- Methods:
+    - Row or Bernoulli
+        - Every row is chosen with percentage p
+        - More randomness
+        - Recommended when dealing with smaller tables
+    - Block or System
+        - Every block is chosen with percentage p
+        - More effective processing
+        - Recommended when dealing with large tables
+
+## Scheduling Tasks
+- Tasks can be used to schedule SQL statements
+- Standalone tasks and trees of tasks
+- Not possible for one child task has multiple parent tasks
+- One parent can have up to 100 child tasks
+- One tree overall can have up to 1000 tasks
+- Every task has one parent
+- Tasks have all of the privileges of the owner
