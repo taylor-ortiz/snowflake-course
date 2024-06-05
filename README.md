@@ -410,3 +410,32 @@
 - One tree overall can have up to 1000 tasks
 - Every task has one parent
 - Tasks have all of the privileges of the owner
+- A task can execute a single SQL statement, including a call to a stored procedure
+- A virtual warehouse that is specific to the task is used to execute the SQL statement in a task
+
+## Streams
+- Scenario: if we are building our data warehouses, usually an ETL is involved to extract from a source table. Usually, we are also getting the delta related to this. We want to capture changes to these tables.
+- Streams are objects that records (DML-) changes made to a table
+    - The values are not actually stored in the stream object and are just retreived from the original table
+    - No additional costs related to stream object tables
+    - The only added cost is for the metadata that represents these tables
+    - Once the data transition has occured in the deltas, the stream object will be terminated
+- The process is called change data capture (CDC)
+- Includes:
+    - DELETE
+    - INSERT
+    - UPDATE
+- Types of streams:
+    - Standard
+        - inserts
+        - updates
+        - deletes
+    - Append-only
+        - inserts
+
+## Materialized Views
+- Scenario: we have a view that is queried frequently and it takes a long time to process
+    - We can create a materialized view to solve this problem
+- use any SELECT-statement to create this MV
+- results will be stored in a separate table and this will be updated automatically based on the base table
+- view is automatically updated by an update service in snowflake
