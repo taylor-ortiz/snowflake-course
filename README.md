@@ -495,6 +495,16 @@
 - SYSADMIN and SECURITYADMIN
 - top level role in the system
 - should be granted only to a limited number of users
+- manage and view all objects
+- all configurations on account level
+- account operations (create reader account)
+- first user will have this role assigned
+- initial setup and managing account level objects
+- Best practices:
+    - very controlled assignment strongly recommended
+    - enable multi factor authentication
+    - at leat two users should be assigned to this role
+    - avoid creating objects with that role unless you have to
 ### SECURITYADMIN
 - USERADMIN role is granted to SECURITYADMIN
 - can manage users and roles
