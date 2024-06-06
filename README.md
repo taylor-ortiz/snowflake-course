@@ -439,3 +439,72 @@
 - use any SELECT-statement to create this MV
 - results will be stored in a separate table and this will be updated automatically based on the base table
 - view is automatically updated by an update service in snowflake
+- When to use?
+    - View would take a long time to be processed and is used frequently
+    - Underlying data is change not frequently and on a rather irregular basis
+- If the data is updated on a very regular basis...
+    - Using tasks and streams could be a better alternative
+- Dont use materialized view if data changes are very frequent
+- Keep maintenance cost in mind
+- Consider leveraging tasks (& streams) instead
+- Limitations:
+    - Only available in the enterprise edition
+    - Joins (including self-joins) are not supported
+    - Limited amount of aggregation functions
+    - No user defined functions
+    - No HAVING clauses
+    - No ORDER BY clause
+    - No LIMIT clause
+
+## Dynamic Data Masking
+- Create masking policies for data types that are specific to different roles in your organization
+- Find out which policies are applied to certain roles
+    - information_schema.policy_references(policy_name=>'policyName')
+- If we want to drop or replace a policy, we need to unset the policy to ensure that its not applied on existing columns
+
+## Access Control
+- who can access and perform operations on objects in Snowflake
+- two aspects of access control combined in snowflake
+- Discretionary Access Control (DAC)
+    - each object has an owner who can grant access to that object
+- Role-based Access Control
+    - acces privileges are assigned to roles, which are in turn assigned to users
+- Securable objects
+    - objects in snowflake to which priviliges can be granted
+    - Account
+        - User
+            - People or systems
+        - Role
+            - Entity to which priviliges are granted (role hierarchy)
+        - Database
+            - Schema
+                - Table
+                - View
+                - Stage
+                - Integration
+                - Other schema objects
+        - Warehouse
+        - Other account objects
+- Every object owned by a single role (multiple users)
+- Owner (role) has all priviliges per default
+- Privilege
+    - Level of access to an object (SELECT, DROP, CREATE, etc)
+
+## Snowflake Roles
+### ACCOUNTADMIN
+- SYSADMIN and SECURITYADMIN
+- top level role in the system
+- should be granted only to a limited number of users
+### SECURITYADMIN
+- USERADMIN role is granted to SECURITYADMIN
+- can manage users and roles
+- can manage any object grant globally
+### SYSADMIN
+- create warehouses and databases (and more objects)
+- recommended that all custom roles are assigned
+### USERADMIN
+- dedicated to user and role management only
+- can create users and roles
+### PUBLIC
+- automatically granted to every user
+- can create own objects like every other role (available to every other user/role)
